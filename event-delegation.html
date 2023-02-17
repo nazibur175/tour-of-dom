@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <section>
+     <h1> Exploring event delegation</h1>
+      <ul id="list-container">
+         <li>hlw</li>
+         <li>hi</li>
+         <li>how are you</li>
+         <li>fine</li>
+      </ul>
+      <button id="btn">Add list</button>
+   </section>
+
+
+   <script>
+     document.getElementById('list-container').addEventListener('click',function(event){
+      //console.log(event.target);
+      event.target.parentNode.removeChild(event.target);
+     })
+     document.getElementById('btn').addEventListener('click',function(){
+      const listContainer= document.getElementById('list-container');
+      const li= document.createElement('li');
+      li.innerText='New added';
+      listContainer.appendChild(li);
+     })
+
+
+   </script>
+</body>
+</html>
